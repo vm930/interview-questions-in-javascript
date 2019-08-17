@@ -1,8 +1,8 @@
 function spellingBeeSolutions(wordlist, puzzles) {
 	// wordlist: ['APPLE', 'PLEAS', 'PLEASE']
 	// puzzles: ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPXY', 'XAELPSY']
-
 	//[0, 1, 3, 2, 0]
+
 	let lookup = {};
 	let sortedPuzzles = [];
 	let solution = [];
@@ -27,7 +27,6 @@ function spellingBeeSolutions(wordlist, puzzles) {
 
 	//loop thru sortedPuzzles
 	// need to look for the 1st keyword
-
 	for (let k = 0; k < sortedPuzzles.length; k++) {
 		let counter = 0;
 		let checker = puzzles[k][0];
@@ -38,7 +37,8 @@ function spellingBeeSolutions(wordlist, puzzles) {
 			if (sortedPuzzles[k][l] !== puzzles[k][0]) {
 				//add letter to the string to compare
 				checker += sortedPuzzles[k][l];
-				checker.split('').sort().join('');
+				checker = checker.split('').sort().join('');
+				// console.log('hi', checker);
 				if (lookup[checker]) {
 					counter += lookup[checker];
 				}
@@ -47,7 +47,16 @@ function spellingBeeSolutions(wordlist, puzzles) {
 		solution.push(counter);
 	}
 
+	console.log(lookup);
+	console.log(sortedPuzzles);
+
 	return solution;
 }
 
-spellingBeeSolutions([ 'APPLE', 'PLEAS', 'PLEASE' ], [ 'AELPSXY', 'AELWXYZ', 'AELPXYZ' ]);
+console.log(
+	spellingBeeSolutions([ 'APPLE', 'PLEAS', 'PLEASE' ], [ 'AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPXY', 'XAELPSY' ])
+);
+
+console.log(
+	spellingBeeSolutions([ 'OKAY', 'PLEA', 'EASE' ], [ 'AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPXY', 'XAELPSY' ])
+);
