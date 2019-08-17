@@ -5,7 +5,6 @@
 
 // Input: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
 // Output: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
-
 var reverseList = function(head) {
 	// Input:   1->2->3->4->5->NULL
 	// Output:  5->4->3->2->1->NULL
@@ -18,22 +17,23 @@ var reverseList = function(head) {
 
 	let preval = null;
 	let current = head;
-	let nextval = head.next;
+	// let nextval = head.next
 
 	// 1<-2<-3<-4  preval
 	// null <-5    current
 
-	while (nextval !== null) {
+	while (current !== null) {
+		let nextval = current.next;
 		current.next = preval;
 		preval = current;
 		current = nextval;
-		nextval = nextval.next;
+		// nextval = nextval.next;
 		// console.log(preval)
 		// console.log(current)
 		// console.log(nextval)
 	}
 	// preval.next = null;
-	current.next = preval;
-	// console.log(current);
-	return current;
+	// current.next = preval;
+	// console.log(preval);
+	return preval;
 };
