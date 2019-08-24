@@ -22,7 +22,6 @@ function deleteNote(node) {
 		node.next.val = node.val;
 		node.val = temp;
 		if (node.next.next === null) {
-			console.log('here');
 			// node = node.next
 			node.next = null;
 		} else {
