@@ -19,8 +19,7 @@ Rewriting promises with async and await with error handling
 const loadJson = async (url) => {
 	const res = await fetch(url);
 	if (res.status == 200) {
-		let json = await res.json();
-		return json;
+		return await res.json();
 	} else {
 		throw new Error(res.status);
 	}
@@ -95,8 +94,7 @@ demoGithubUser();
 async function loadJson(url) {
 	const res = await fetch(url);
 	if (res.status == 200) {
-		let json = await res.json();
-		return json;
+		return await res.json();
 	} else {
 		throw new HttpError(response);
 	}
@@ -139,7 +137,6 @@ function f() {
 
 async function wait() {
 	await new Promise((resolve) => setTimeout(resolve, 1000));
-
 	return 10;
 }
 
