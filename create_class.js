@@ -21,6 +21,11 @@ class Story {
 		// this.constructor.all.push(this);
 	}
 
+	summary() {
+		return `this story title is ${this.title}, by ${this.author} and it talks a lot on the topic of ${this
+			.content}.`;
+	}
+
 	static latestNews() {
 		// console.log(this.constructor.all);
 		return stories.sort((a, b) => b.history - a.history);
@@ -53,7 +58,9 @@ flatironschool = new Story(
 );
 
 // Story.all = [];
-console.log(Story.latestNews());
+// console.log(Story.latestNews());
+console.log(dragonkillseveryone.summary());
+console.log(foloridaMan.summary());
 
 // console.log(dragonkillseveryone);
 // console.log(foloridaMan);
